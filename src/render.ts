@@ -19,19 +19,26 @@ export function render() {
 
   for (const [index, game] of Object.entries(GAMES)) {
     const gameIndex = Number(index)
-    const gameItem = el('div', { className: 'grid-item' })
+    const gameItem = el('label', {
+      htmlFor: `game-${gameIndex}`,
+      className: 'grid-item'
+    })
 
     const buttonIcon = el('img', { src: PlayIcon })
     const buttonPlay = el(
       'button',
       {
         className: 'play-button',
-        onclick: () => audioPlayer.play(buttonIcon, game)
+        onclick: () => {
+          gameItem.focus()
+          audioPlayer.play(buttonIcon, game)
+        }
       },
       buttonIcon
     )
 
     const input = el('input', {
+      id: `game-${gameIndex}`,
       className: 'input',
       placeholder: `Игра #${gameIndex + 1}`,
       oninput: (event) => {

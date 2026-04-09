@@ -31,14 +31,10 @@ const resetButton = el(
   'Сбросить прогресс'
 )
 
-export const header = el(
-  'header',
-  { className: 'header' },
+export const header = el('header', { className: 'header' }, [
   el('h1', { className: 'title' }, 'SFX Game Quiz'),
-  el(
-    'div',
-    { className: 'controls' },
-    el('label', { className: 'volume-label' }, 'Громкость', volumeRange),
+  el('div', { className: 'controls' }, [
+    el('label', { className: 'volume-label' }, ['Громкость', volumeRange]),
     resetButton
-  )
-)
+  ])
+])

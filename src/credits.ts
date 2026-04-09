@@ -1,8 +1,6 @@
 import { el } from '@zero-dependency/dom'
 
-export const credits = el(
-  'div',
-  { className: 'credits' },
+export const credits = el('div', { className: 'credits' }, [
   'Сделано с',
   el('span', { className: 'heart' }, '❤️'),
   'от',
@@ -23,4 +21,4 @@ export const credits = el(
     },
     'VS_Code'
   )
-)
+])
